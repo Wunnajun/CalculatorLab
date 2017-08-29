@@ -19,6 +19,8 @@ namespace CPE200Lab1
         private string firstOperand;
         private string operate;
 
+        double result = 0.0;
+        string operation = " "; //string for operation
         private void resetAll()
         {
             lblDisplay.Text = "0";
@@ -26,20 +28,24 @@ namespace CPE200Lab1
             hasDot = false;
             isAfterOperater = false;
             isAfterEqual = false;
+
+
+
         }
 
         private string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
-            switch(operate)
+            switch(operate)  //choose operation
             {
-                case "+":
+                case "+": //case + (plus)
                     return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
-                case "-":
+                case "-": //case - (minus)
                     return (Convert.ToDouble(firstOperand) - Convert.ToDouble(secondOperand)).ToString();
-                case "X":
+                case "X": //case * (multiply)
                     return (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand)).ToString();
-                case "÷":
+                case "÷": //case / (devide)
                     // Not allow devide be zero
+
                     if(secondOperand != "0")
                     {
                         double result;
@@ -60,7 +66,13 @@ namespace CPE200Lab1
                         return result.ToString("N" + remainLength);
                     }
                     break;
+
                 case "%":
+
+                    return ((Convert.ToDouble( firstOperand ) % Convert.ToDouble(secondOperand)).ToString()) ;
+                    lblDisplay.Text = Convert.ToString(result);
+                    
+
                     //your code here
                     break;
             }
@@ -123,6 +135,11 @@ namespace CPE200Lab1
                     isAfterOperater = true;
                     break;
                 case "%":
+                    firstOperand = lblDisplay.Text;
+                    Button b = (Button)sender;
+                  
+                       
+
                     // your code here
                     break;
             }
@@ -226,6 +243,56 @@ namespace CPE200Lab1
                     lblDisplay.Text = "0";
                 }
             }
+        }
+
+        private void MC_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text == "MC")
+                
+
+
+            return;
+        }
+
+        private void MR_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text == "MR")
+
+
+                return;
+        }
+
+        private void MS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mplus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Mminus_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDisplay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Squareroot_Click(object sender, EventArgs e)
+        {
+             result = (System.Math.Sqrt(Convert.ToDouble(lblDisplay.Text)));
+            lblDisplay.Text = Convert.ToString(result);
+        }
+
+        private void oneoverX_Click(object sender, EventArgs e)
+        {
+            result = Convert.ToDouble(1.0 / Convert.ToDouble(lblDisplay.Text));
+            lblDisplay.Text = Convert.ToString(result);
+
         }
     }
 }
