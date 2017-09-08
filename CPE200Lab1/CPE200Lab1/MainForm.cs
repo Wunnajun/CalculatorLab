@@ -60,12 +60,12 @@ namespace CPE200Lab1
                 return;
             }
             isAllowBack = true;
-            string digit = ((Button)sender).Text;
-            if(lblDisplay.Text is "0")
+            string digit = ((Button)sender).Text; //text in bottom
+            if(lblDisplay.Text is "0") 
             {
-                lblDisplay.Text = "";
+                lblDisplay.Text = ""; //no happen
             }
-            lblDisplay.Text += digit;
+            lblDisplay.Text += digit; //this play = thisplay +text //ต่อ string 
             isAfterOperater = false;
         }
 
@@ -95,7 +95,7 @@ namespace CPE200Lab1
 
         private void btnOperator_Click(object sender, EventArgs e)
         {
-            if (lblDisplay.Text is "Error")
+            if (lblDisplay.Text is "Error")//
             {
                 return;
             }
@@ -105,8 +105,8 @@ namespace CPE200Lab1
             }
             if(firstOperand != null)
             {
-                string secondOperand = lblDisplay.Text;
-                string result = engine.calculate(operate, firstOperand, secondOperand);
+                string secondOperand = lblDisplay.Text; //เอาดิสเพลงมาเป็นที่สอง
+                string result = engine.calculate(operate, firstOperand, secondOperand); //เท่ากับ
                 if (result is "E" || result.Length > 8)
                 {
                     lblDisplay.Text = "Error";
@@ -140,7 +140,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-            string result = engine.calculate(operate, firstOperand, secondOperand);
+            string result = engine.calculate(operate, firstOperand, secondOperand); //operate is +
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
