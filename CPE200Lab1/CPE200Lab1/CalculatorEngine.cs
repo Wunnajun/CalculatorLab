@@ -117,17 +117,27 @@ namespace CPE200Lab1
                         int remainLength;
 
                         result = (Convert.ToDouble(firstOperand) / Convert.ToDouble(secondOperand));
-                        // split between integer part and fractional part
+                        if ((Convert.ToDouble(firstOperand) % Convert.ToDouble(secondOperand)) == 0) //if mod = 0 will print number (10) no(10.0)
+
+                         {
+                            return result.ToString();
+                            //return Convert.ToString(Convert.ToDouble(firstOperand) / Convert.ToDouble(secondOperand)); //bring Convert.toString 
+                            // split between integer part and fractional part
+                        }
+
                         parts = result.ToString().Split('.');
+
                         // if integer part length is already break max output, return error
                         if (parts[0].Length > maxOutputSize)
                         {
                             return "E";
                         }
                         // calculate remaining space for fractional part.
-                        remainLength = maxOutputSize - parts[0].Length - 1;
-                        // trim the fractional part gracefully. =
-                        return result.ToString("N" + remainLength);
+                        remainLength = maxOutputSize - parts[0].Length - 2; //change -1 to -2 it calculat 0.5 
+                                                                            // trim the fractional part gracefully. =
+                        result = Math.Round(result, 4);
+                        return result.ToString();//("N" + remainLength);
+                        // return result.ToString("G29"); 
                     }
                     break;
                 case "%":

@@ -29,7 +29,7 @@ namespace CPE200Lab1.Tests
         [TestMethod()]
         public void EmptyArgumentTest()
         {
-            Assert.AreEqual("E", engine.Process(null));
+            Assert.AreEqual("E", engine.Process(null)); 
             Assert.AreEqual("E", engine.Process(""));
         }
 
@@ -96,11 +96,11 @@ namespace CPE200Lab1.Tests
         }
 
         [TestMethod()]
-        public void DividedByZeroTest()
+        public void DividedByZeroTest() //
         {
             Assert.AreEqual("E", engine.Process("0 0 ÷ "));
             Assert.AreEqual("E", engine.Process("1 0 ÷ "));
-            Assert.AreEqual("E", engine.Process("1 2 2 - ÷ "));
+            Assert.AreEqual("E", engine.Process("1 2 2 - ÷ ")); //if input medton string
         }
 
         [TestMethod()]
