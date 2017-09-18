@@ -30,7 +30,12 @@ namespace CPE200Lab1
                 if (isNumber(token))
                 {
                     int i;
-                    for (i=0; )
+                    for(i=0;i<token.Length;i++)
+                    {
+                        if (token[i] == '+')
+                            return "E";
+                    }
+                    //for (i=0; )
                 }
                 if (isNumber(token))
                 {
@@ -58,12 +63,22 @@ namespace CPE200Lab1
                     }
                     rpnStack.Push(result);
                 }
+                else
+                {
+                    int i;
+                    for (i = 0; i < token.Length; i++)
+                    {
+                        if (token[i] == '+')
+                            return "E";
+                    }
+                }
             }
             //FIXME, what if there is more than one, or zero, items in the stack?
-            if (rpnStack.Count != 0)
-                result = rpnStack.Pop();
+            if (rpnStack.Count != 1)
+                return "E";
+                
             else
-                result = "E";
+            result = rpnStack.Pop();
             return result;
         }
     }
