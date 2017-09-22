@@ -10,17 +10,11 @@ namespace CPE200Lab1
     {
         protected Stack<string> mystack;
 
-        public string calculate(string oper)
+       
+
+        public new string calculate(string str)
         {
-
-
-
-            return " ";
-        }
-
-        public new string Process(string str)
-        {
-            Stack<string> rpnStack = new Stack<string>();
+            Stack<string> myStack = new Stack<string>();
            List<string> parts = new List<string>();
             try
             { 
@@ -49,16 +43,16 @@ namespace CPE200Lab1
                 }
                 if (isNumber(token))
                 {
-                    rpnStack.Push(token);
+                    myStack.Push(token);
                 }
                 else if (isOperator(token))
                 {
                     //FIXME, what if there is only one left in stack?
 
-                    if (rpnStack.Count >= 2)
+                    if (myStack.Count >= 2)
                     { 
-                        secondOperand = rpnStack.Pop();
-                        firstOperand = rpnStack.Pop();
+                        secondOperand = myStack.Pop();
+                        firstOperand = myStack.Pop();
                         if (isOperator(firstOperand) || isOperator(secondOperand))
                             return "E";
                     }else
@@ -71,7 +65,7 @@ namespace CPE200Lab1
                     {
                         return result;
                     }
-                    rpnStack.Push(result);
+                    myStack.Push(result);
                 }
                 else
                 {
@@ -84,11 +78,11 @@ namespace CPE200Lab1
                 }
             }
             //FIXME, what if there is more than one, or zero, items in the stack?
-            if (rpnStack.Count != 1)
+            if (myStack.Count != 1)
                 return "E";
                 
             else
-            result = rpnStack.Pop();
+            result = myStack.Pop();
             return result;
         }
     }
