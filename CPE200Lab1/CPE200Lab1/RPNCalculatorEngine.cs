@@ -8,6 +8,16 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
+        protected Stack<string> mystack;
+
+        public string calculate(string oper)
+        {
+
+
+
+            return " ";
+        }
+
         public new string Process(string str)
         {
             Stack<string> rpnStack = new Stack<string>();
@@ -66,9 +76,9 @@ namespace CPE200Lab1
                 else
                 {
                     int i;
-                    for (i = 0; i < token.Length; i++)
+                    for (i = 0; i < token.Length; i++) //perm ma ton nee
                     {
-                        if (token[i] == '+')
+                        if (token[i] == '+') //if plus ++ ซ้ำๆ
                             return "E";
                     }
                 }
